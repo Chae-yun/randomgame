@@ -9,7 +9,7 @@ import android.widget.TextView;
  */
 public class ResultActivity extends AppCompatActivity {
 
-    TextView mResult
+    TextView mResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
