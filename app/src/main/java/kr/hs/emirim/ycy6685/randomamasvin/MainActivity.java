@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        mName.setText(""); //뒤로 돌아오면 내용 지워져 있도록
+        mName.setText(null); //뒤로 돌아오면 내용 지워져 있도록
     }
 
     /** //자바독이라고 하는 표시
@@ -36,8 +36,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override //이런 골뱅이 뭐뭐 보고 애노테이션
     public void onClick(View v) {
-        Toast.makeText(this, "버블티 먹고싶다", Toast.LENGTH_LONG).show(); //메소드 연속호출 (메소드 체이닝)
-        Intent intent = new Intent(this, ResultActivity.class); //Intent 라는 객체 //.class 확장자까지 써야 함
-        startActivity(intent); //액티비티 넘어간다
+
+        String name = mName.getText().toString(); //getText()는 리턴타입이 에디터블이므로 toString()으로 스트링으로 바꿔준다
+
+//        if(name == null) {
+//            Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show(); //메소드 연속호출 (메소드 체이닝)
+//        }
+//
+//        else {
+//            Toast.makeText(this, name + "씨, 버블티 사주세요!", Toast.LENGTH_LONG).show(); //메소드 연속호출 (메소드 체이닝)
+//            //만약 이름을 안넣고 버튼을 누르면 널포인트익셉션을 발생시킨다 (예외처리하라) 해결 방법은 두가지
+//            Intent intent = new Intent(this, ResultActivity.class); //Intent 라는 객체 //.class 확장자까지 써야 함
+//            startActivity(intent); //액티비티 넘어간다
+//        } //주석 한꺼번에 하려면 커맨드 슬래시
+        //예외가 정확하게 나올시에는 이프엘스가 좋을지도
+
+        try{
+            Toast.makeText(this, name + "씨, 버블티 사주세요!", Toast.LENGTH_LONG).show(); //메소드 연속호출 (메소드 체이닝)
+            //만약 이름을 안넣고 버튼을 누르면 널포인트익셉션을 발생시킨다 (예외처리하라) 해결 방법은 두가지
+            Intent intent = new Intent(this, ResultActivity.class); //Intent 라는 객체 //.class 확장자까지 써야 함
+            startActivity(intent); //액티비티 넘어간다 //여기서 예외가 발생하지 않으면 그대로 나감 만약 발생하면 catch로~~~
+        }
+        catch(NullPointerException e) {
+            Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show(); //메소드 연속호출 (메소드 체이닝)
+        }
+        catch(Exception e){ //모든 예외의 어머니로 위에서 따로 말해준 예외가 없으면 이걸 실행
+            Toast.makeText(this, "뭔지 모르지만 잘 안되네요!", Toast.LENGTH_LONG).show(); //메소드 연속호출 (메소드 체이닝)
+        }
     }
 }
