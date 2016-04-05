@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, name + "씨, 버블티 사주세요!", Toast.LENGTH_LONG).show(); //메소드 연속호출 (메소드 체이닝)
             //만약 이름을 안넣고 버튼을 누르면 널포인트익셉션을 발생시킨다 (예외처리하라) 해결 방법은 두가지
             Intent intent = new Intent(this, ResultActivity.class); //Intent 라는 객체 //.class 확장자까지 써야 함
+            intent.putExtra("name",name); //서로 액티비티끼리 주고 받기 위해서 이걸 씀 name을 저쪽에서 "name"이라는 변수명으로 쓴다
+            intent.putExtra("age",10); //큰 데이터는 넘기지 말자..;;
             startActivity(intent); //액티비티 넘어간다 //여기서 예외가 발생하지 않으면 그대로 나감 만약 발생하면 catch로~~~
         }
         catch(NullPointerException e) {
