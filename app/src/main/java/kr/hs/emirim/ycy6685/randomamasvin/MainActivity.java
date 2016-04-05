@@ -1,5 +1,6 @@
 package kr.hs.emirim.ycy6685.randomamasvin;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,5 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override //이런 골뱅이 뭐뭐 보고 애노테이션
     public void onClick(View v) {
         Toast.makeText(this, "버블티 먹고싶다", Toast.LENGTH_LONG).show(); //메소드 연속호출 (메소드 체이닝)
+        Intent intent = new Intent(this, ResultActivity.class); //Intent 라는 객체 //.class 확장자까지 써야 함
+        startActivity(intent); //액티비티 넘어간다
     }
 }
