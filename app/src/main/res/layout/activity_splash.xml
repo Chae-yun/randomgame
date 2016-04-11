@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffe7f6"
+    tools:context="kr.hs.emirim.ycy6685.randomamasvin.SplashActivity">
+
+    <ImageView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:src="@drawable/flower"
+        android:adjustViewBounds="true" />
+    <!--어저스트뷰바운즈는 보이는 범위??-->
+    <!--원래 이미지뷰라는 클래스-->
+
+</FrameLayout> <!--원래 요소 위에 요소를 놓기 위해서 이용하는 것-->
