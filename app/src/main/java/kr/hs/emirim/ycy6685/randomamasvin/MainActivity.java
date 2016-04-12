@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() { //액티비티 재귀시
         super.onResume();
         mName.setText(null); //뒤로 돌아오면 내용 지워져 있도록
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     /** //자바독이라고 하는 표시
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("name",name); //서로 액티비티끼리 주고 받기 위해서 이걸 씀 name을 저쪽에서 "name"이라는 변수명으로 쓴다
             intent.putExtra("age", 10); //큰 데이터는 넘기지 말자..;;
             startActivity(intent); //액티비티 넘어간다 //여기서 예외가 발생하지 않으면 그대로 나감 만약 발생하면 catch로~~~
-            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
         catch(NullPointerException e) {
             Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show(); //메소드 연속호출 (메소드 체이닝)
